@@ -50,7 +50,7 @@ class FeedUpload(APIView):
         print("user_email: ", user_email)
 
         # Feed.objects.create(content=content, image=image, profile_image=profile_image, user_id=user_id, like_count=0)
-        Feed.objects.create(content=content, image=image, profile_image=profile_image, user_id=user_id, user_email=user_email)
+        Feed.objects.create(content=content, image=image, profile_image=profile_image, user_id=user_id, user_email=user_email, like_count=0)
 
         return Response(status=200)
 
