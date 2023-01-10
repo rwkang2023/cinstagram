@@ -277,7 +277,7 @@
         // https://www.youtube.com/watch?v=M8UPyeF5DfM  ===> 5:35:10 요기...
         const file = files[0];
         // const file = files; 이건 사용하면 안 됨...
-        alert(`${getLineNumber()}, file: ${file}`);
+        // alert(`${getLineNumber()}, file: ${file}`);
 
         // const content = $('#input_content').val();
         // const content = document.getElementById("input_content").val();
@@ -301,7 +301,7 @@
 
         const user_email = document.getElementById("input_user_email").innerText.trim();
         // const user_email = $.trim($('#input_user_email');
-        alert(`${getLineNumber()}, user_email: ${user_email}`);
+        // alert(`${getLineNumber()}, user_email: ${user_email}`);
 
         let fd = new FormData();
         // alert(`${getLineNumber()}, fd: ${fd}`);
@@ -346,7 +346,7 @@
             },
             complete: function () {
                 console.log("무조건 실행!!!!!");
-                alert(`${getLineNumber()}, 모달 창 닫기 전 상태 확인!!!`)
+                // alert(`${getLineNumber()}, 모달 창 닫기 전 상태 확인!!!`)
                 closeMode(); // 성공이든 실패든 modal창을 닫기 위해...
                 location.reload(); // 로드한 feed를 메인화면에서 확인할 수 있게 화면은 새로 고침 해 준다.
             }

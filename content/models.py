@@ -9,6 +9,7 @@ class Feed(models.Model):
     profile_image = models.TextField()  # 프로필 이미지
     user_id = models.TextField(max_length=100)  # 글쓴이
     user_email = models.CharField(max_length=100, blank=True, help_text="Email 좀 적어 주세요!")
+    like_count = models.IntegerField(default=0)  # 좋아요 수
 
     # class EmailSet(models.TextChoices):
     #     RWKANG = 'RW', _('rwkang@naver.com')

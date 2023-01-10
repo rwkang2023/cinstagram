@@ -12,7 +12,9 @@ from content.models import Feed
 class Main(APIView):
     def get(self, request):
         feed_list = Feed.objects.all().order_by("-id")  # 등록 순서 = 최근 등록을 맨 위로...
+        context = dict(feed_list=feed_list)
         print("feed_list: ", feed_list)
+        print("context: ", context)
         return render(request, 'cinstagram/main.html', context=dict(feed_list=feed_list))
 
 
