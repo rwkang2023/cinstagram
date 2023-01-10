@@ -1,7 +1,7 @@
 venv/*
 media/*
 db.sqlite3
-*/migrations/*
+#*/migrations/*
 .idea/*
 *.pyc
 
