@@ -38,19 +38,23 @@ class FeedUpload(APIView):
         uuid_name = uuid4().hex
         save_path = os.path.join(MEDIA_ROOT, uuid_name)
         # low level language : 파일 쓸 때 사용...
+
         with open(save_path, 'wb+') as destination:
             for chunk in file.chunks():
                 destination.write(chunk)
+
         content = request.data.get('content')
         image = uuid_name
         profile_image = request.data.get('profile_image')
         user_id = request.data.get('user_id')
         user_email = request.data.get('user_email')
+        like_count = 0
         print("image: ", image)
         print("user_email: ", user_email)
+        print("like_count: ", like_count)
 
         # Feed.objects.create(content=content, image=image, profile_image=profile_image, user_id=user_id, like_count=0)
-        Feed.objects.create(content=content, image=image, profile_image=profile_image, user_id=user_id, user_email=user_email, like_count=0)
+        Feed.objects.create(content=content, image=image, profile_image=profile_image, user_id=user_id, user_email=user_email, like_count=like_count)
 
         return Response(status=200)
 
