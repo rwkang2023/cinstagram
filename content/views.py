@@ -11,7 +11,9 @@ from content.models import Feed
 
 class Main(APIView):
     def get(self, request):
-        return render(request, 'cinstagram/main.html')
+        feed_list = Feed.objects.all().order_by("-id")  # 등록 순서 = 최근 등록을 맨 위로...
+        print("feed_list: ", feed_list)
+        return render(request, 'cinstagram/main.html', context=dict(feed_list=feed_list))
 
 
 class FeedUpload(APIView):
@@ -41,7 +43,9 @@ class FeedUpload(APIView):
         image = uuid_name
         profile_image = request.data.get('profile_image')
         user_id = request.data.get('user_id')
-        user_email = request.data.get('user_mail')
+        user_email = request.data.get('user_email')
+        print("image: ", image)
+        print("user_email: ", user_email)
 
         # Feed.objects.create(content=content, image=image, profile_image=profile_image, user_id=user_id, like_count=0)
         Feed.objects.create(content=content, image=image, profile_image=profile_image, user_id=user_id, user_email=user_email)
